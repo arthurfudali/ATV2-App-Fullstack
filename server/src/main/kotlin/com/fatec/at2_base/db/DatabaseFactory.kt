@@ -15,7 +15,7 @@ object DatabaseFactory {
         // Início da etapa de verificação de esquema
         val flyway = Flyway.configure()
             .dataSource(dbUrl, dbUser, dbPassword)
-            .locations("classpath:com/fatec/at2_base/db/migrations")
+            .locations("classpath:db/migration")
             .baselineOnMigrate(true)
             .load()
 

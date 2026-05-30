@@ -1,5 +1,6 @@
 package com.fatec.at2_base
 
+import com.fatec.at2_base.db.DatabaseFactory
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
@@ -12,6 +13,7 @@ fun main() {
 }
 
 fun Application.module() {
+    DatabaseFactory.init()
     routing {
         get("/") {
             call.respondText("Ktor: ${Greeting().greet()}")
