@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: at2
+      POSTGRES_PASSWORD: at2pass
+      POSTGRES_DB: at2db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
