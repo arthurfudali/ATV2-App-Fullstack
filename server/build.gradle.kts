@@ -25,6 +25,10 @@ dependencies {
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.serialization.kotlinx.json)
 
+    // Semana 03: Swagger UI
+    implementation(libs.ktor.server.swagger)
+    implementation(libs.ktor.server.status.pages)
+
 // ORM Jetbrains Exposed
     implementation(libs.exposed.core)
     implementation(libs.exposed.dao)
