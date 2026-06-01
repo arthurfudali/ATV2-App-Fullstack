@@ -16,7 +16,6 @@ application {
 
 dependencies {
     implementation(projects.shared)
-    implementation(libs.logback)
     implementation(libs.ktor.serverCore)
     implementation(libs.ktor.serverNetty)
     testImplementation(libs.ktor.serverTestHost)
@@ -28,17 +27,4 @@ dependencies {
     // Semana 03: Swagger UI
     implementation(libs.ktor.server.swagger)
     implementation(libs.ktor.server.status.pages)
-
-// ORM Jetbrains Exposed
-    implementation(libs.exposed.core)
-    implementation(libs.exposed.dao)
-    implementation(libs.exposed.jdbc)
-    implementation(libs.exposed.json)
-
-// Controle de esquemas - Flyway
-    implementation(libs.flyway.core)
-    implementation(libs.flyway.database.postgresql)
-
-// Interação oficial JDBC
-    implementation(libs.postgresql)
 }

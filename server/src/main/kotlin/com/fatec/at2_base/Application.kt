@@ -1,10 +1,12 @@
 package com.fatec.at2_base
 
-import com.fatec.at2_base.db.DatabaseFactory
+import com.fatec.at2_base.repository.InMemoryProductRepository
 import com.fatec.at2_base.routes.productRoutes
+import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
@@ -14,11 +16,16 @@ fun main() {
 }
 
 fun Application.module() {
-    DatabaseFactory.init()
+    install(ContentNegotiation) {
+        json()
+    }
+
+    val productRepository = InMemoryProductRepository()
     routing {
         get("/") {
             call.respondText("Ktor: ${Greeting().greet()}")
         }
-        productRoutes(com.fatec.at2_base.repositories.ProductRepository())
+
+        productRoutes(productRepository)
     }
 }
